@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IA en Medicina - Revista Científica</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --color-primary: #2c3e50;
+            --color-secondary: #3498db;
+            --color-accent: #e74c3c;
+            --color-light: #ecf0f1;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--color-primary) 0%, #1a2530 100%);
+            color: white;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 0 0 10px 10px;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .logo span {
+            color: var(--color-accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        nav a:hover {
+            color: var(--color-accent);
+        }
+        
+        /* Article Content */
+        .article-container {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .article-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .article-title {
+            color: var(--color-primary);
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .article-meta {
+            color: #666;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+        
+        .article-meta span {
+            background: var(--color-light);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .article-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .article-section {
+            margin-bottom: 2rem;
+        }
+        
+        .article-section h3 {
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--color-secondary);
+            padding-left: 1rem;
+        }
+        
+        .article-section p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+        
+        .article-section ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .article-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            background: var(--color-secondary);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: background 0.3s;
+        }
+        
+        .download-btn:hover {
+            background: #2980b9;
+        }
+        
+        .back-link {
+            display: inline-block;
+            color: var(--color-secondary);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--color-primary);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px 10px 0 0;
+            margin-top: 3rem;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            .article-title {
+                font-size: 1.8rem;
+            }
+            
+            .article-meta {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">Campus<span>Experimental</span></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="articulos.html">Artículos</a></li>
+                    <li><a href="index.html#about">Nosotros</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <a href="articulos.html" class="back-link">← Volver a todos los artículos</a>
+
+        <article class="article-container">
+            <div class="article-header">
+                <h1 class="article-title">Avances en la inteligencia artificial aplicada a la medicina</h1>
+                <div class="article-meta">
+                    <span>📅 Enero 2024</span>
+                    <span>👩‍🔬 Dra. Elena Rodríguez</span>
+                    <span>🏥 Departamento de Innovación Médica</span>
+                    <span>🔬 Medicina & Tecnología</span>
+                </div>
+            </div>
+
+            <img src="https://raw.githubusercontent.com/braian-3402/braian-3402.github.io/main/imagenes/orion.jpg" 
+                 alt="IA aplicada en diagnóstico médico" class="article-image">
+
+            <div class="article-content">
+                <div class="article-section">
+                    <h3>Resumen Ejecutivo</h3>
+                    <p>La inteligencia artificial está revolucionando el campo de la medicina mediante el desarrollo de algoritmos capaces de analizar grandes volúmenes de datos médicos, asistir en el diagnóstico de enfermedades y personalizar tratamientos para pacientes individuales.</p>
+                </div>
+
+                <div class="article-section">
+                    <h3>Introducción</h3>
+                    <p>En los últimos años, la integración de sistemas de inteligencia artificial en el ámbito médico ha demostrado un potencial significativo para mejorar la precisión diagnóstica, optimizar los flujos de trabajo clínicos y reducir los costos sanitarios.</p>
+                </div>
+
+                <div class="article-section">
+                    <h3>Metodología</h3>
+                    <p>El estudio se basó en el análisis de datos de más de 50,000 casos médicos utilizando redes neuronales convolucionales y algoritmos de aprendizaje profundo. Los datos incluyeron:</p>
+                    <ul>
+                        <li>Imágenes médicas (radiografías, resonancias magnéticas)</li>
+                        <li>Historiales clínicos electrónicos</li>
+                        <li>Datos genómicos de pacientes</li>
+                        <li>Resultados de laboratorio</li>
+                    </ul>
+                </div>
+
+                <div class="article-section">
+                    <h3>Resultados Destacados</h3>
+                    <p>El sistema desarrollado demostró una precisión del 94.7% en el diagnóstico temprano de cáncer de pulmón a partir de imágenes de tomografía computarizada, superando el rendimiento de radiólogos humanos en un 15%.</p>
+                    <p>Adicionalmente, se logró reducir el tiempo de diagnóstico de 72 horas a menos de 2 horas en casos críticos.</p>
+                </div>
+
+                <div class="article-section">
+                    <h3>Conclusiones</h3>
+                    <p>La IA representa una herramienta poderosa para complementar el trabajo de los profesionales de la salud, ofreciendo diagnósticos más rápidos y precisos. Sin embargo, es crucial mantener la supervisión humana y considerar aspectos éticos en su implementación.</p>
+                </div>
+
+                <a href="laboratorios/ia-medicina/articulo-completo.pdf" class="download-btn">
+                    📄 Descargar PDF Completo
+                </a>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>© 2024 Revista Científica - Laboratorio de Física Experimental UNSJ</p>
+        <p>Contacto: revista@unsj.edu.ar | Tel: +54 264 123-4567</p>
+    </footer>
+</body>
+</html>
