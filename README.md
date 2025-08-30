@@ -1,4 +1,4 @@
-# braian-3402.github.io
+# campusexperimental.github.io
 # Revista Académica
 
 Sitio web oficial de la Revista Académica, una publicación dedicada a la difusión de investigaciones científicas de alta calidad.
