@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artículos - Revista Laboratorio de Física UNSJ</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --color-primary: #2c3e50;
+            --color-secondary: #3498db;
+            --color-accent: #e74c3c;
+            --color-light: #ecf0f1;
+            --color-dark: #2c3e50;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-dark) 100%);
+            color: white;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        .logo span {
+            color: var(--color-accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--color-accent);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                       url('https://raw.githubusercontent.com/braian-3402/braian-3402.github.io/main/imagenes/orion.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+        
+        /* Articles Grid */
+        .articles-section {
+            padding: 3rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--color-primary);
+            font-size: 2rem;
+        }
+        
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .article-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+        
+        .article-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .article-content {
+            padding: 1.5rem;
+        }
+        
+        .article-content h3 {
+            color: var(--color-primary);
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+        }
+        
+        .article-meta {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .article-meta span {
+            background: var(--color-light);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+        
+        .article-content p {
+            color: #555;
+            margin-bottom: 1.2rem;
+            line-height: 1.6;
+        }
+        
+        .read-more {
+            color: var(--color-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .read-more:hover {
+            text-decoration: underline;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--color-dark);
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 0 20px;
+        }
+        
+        .footer-section h3 {
+            color: var(--color-accent);
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section p {
+            color: #ccc;
+            margin-bottom: 0.8rem;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #4a6572;
+            color: #ccc;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">Campus<span>Experimental</span></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="articulos.html">Artículos</a></li>
+                    <li><a href="index.html#about">Nosotros</a></li>
+                    <li><a href="index.html#submit">Publicar</a></li>
+                    <li><a href="index.html#contact">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Artículos Científicos</h1>
+            <p>Explora nuestras publicaciones y investigaciones más recientes</p>
+        </div>
+    </section>
+
+    <main class="container">
+        <section class="articles-section">
+            <h2 class="section-title">Todos los Artículos</h2>
+            
+            <div class="articles-grid">
+                <!-- Artículo 1 -->
+                <article class="article-card">
+                    <img src="https://raw.githubusercontent.com/braian-3402/braian-3402.github.io/main/imagenes/orion.jpg" 
+                         alt="Investigación en inteligencia artificial médica" class="article-img">
+                    <div class="article-content">
+                        <h3>Avances en la inteligencia artificial aplicada a la medicina</h3>
+                        <div class="article-meta">
+                            <span>Dra. Elena Rodríguez</span>
+                            <span>Enero 2024</span>
+                            <span>Medicina</span>
+                        </div>
+                        <p>Exploración de las últimas técnicas de IA para diagnóstico médico y tratamiento personalizado de enfermedades.</p>
+                        <a href="#" class="read-more">Leer artículo completo →</a>
+                    </div>
+                </article>
+
+                <!-- Artículo 2 -->
+                <article class="article-card">
+                    <img src="https://raw.githubusercontent.com/braian-3402/braian-3402.github.io/main/imagenes/orion.jpg" 
+                         alt="Impacto del cambio climático" class="article-img">
+                    <div class="article-content">
+                        <h3>Impacto del cambio climático en los ecosistemas marinos</h3>
+                        <div class="article-meta">
+                            <span>Dr. Carlos Méndez</span>
+                            <span>Diciembre 2023</span>
+                            <span>Ecología</span>
+                        </div>
+                        <p>Análisis de los efectos a largo plazo del calentamiento global en la biodiversidad de los océanos.</p>
+                        <a href="#" class="read-more">Leer artículo completo →</a>
+                    </div>
+                </article>
+
+                <!-- Artículo 3 -->
+                <article class="article-card">
+                    <img src="https://raw.githubusercontent.com/braian-3402/braian-3402.github.io/main/imagenes/orion.jpg" 
+                         alt="Enseñanza de matemáticas" class="article-img">
+                    <div class="article-content">
+                        <h3>Nuevos enfoques en la enseñanza de las matemáticas</h3>
+                        <div class="article-meta">
+                            <span>Dr. Javier López</span>
+                            <span>Noviembre 2023</span>
+                            <span>Educación</span>
+                        </div>
+                        <p>Evaluación de metodologías innovadoras para mejorar el aprendizaje de las matemáticas en educación superior.</p>
+                        <a href="#" class="read-more">Leer artículo completo →</a>
+                    </div>
+                </article>
+
+                <!-- Artículo 4 -->
+                <article class="article-card">
+                    <img src="https://raw.githubusercontent.com/braian-3402/braian-3402.github.io/main/imagenes/orion.jpg" 
+                         alt="Energías renovables" class="article-img">
+                    <div class="article-content">
+                        <h3>Desarrollo de nuevas tecnologías en energías renovables</h3>
+                        <div class="article-meta">
+                            <span>Dra. María González</span>
+                            <span>Octubre 2023</span>
+                            <span>Energía</span>
+                        </div>
+                        <p>Innovaciones recientes en captación y almacenamiento de energía solar y eólica para aplicaciones urbanas.</p>
+                        <a href="#" class="read-more">Leer artículo completo →</a>
+                    </div>
+                </article>
+
+                <!-- Artículo 5 -->
+                <article class="article-card">
+                    <img src="https://raw.githubusercontent.com/braian-3402/braian-3402.github.io/main/imagenes/orion.jpg" 
+                         alt="Neurociencia cognitiva" class="article-img">
+                    <div class="article-content">
+                        <h3>Avances en neurociencia cognitiva y aprendizaje</h3>
+                        <div class="article-meta">
+                            <span>Dr. Roberto Sánchez</span>
+                            <span>Septiembre 2023</span>
+                            <span>Neurociencia</span>
+                        </div>
+                        <p>Estudio de los mecanismos cerebrales involucrados en los procesos de aprendizaje y memoria.</p>
+                        <a href="#" class="read-more">Leer artículo completo →</a>
+                    </div>
+                </article>
+
+                <!-- Artículo 6 -->
+                <article class="article-card">
+                    <img src="https://raw.githubusercontent.com/braian-3402/braian-3402.github.io/main/imagenes/orion.jpg" 
+                         alt="Bioingeniería" class="article-img">
+                    <div class="article-content">
+                        <h3>Aplicaciones de la bioingeniería en medicina regenerativa</h3>
+                        <div class="article-meta">
+                            <span>Dra. Ana Martínez</span>
+                            <span>Agosto 2023</span>
+                            <span>Bioingeniería</span>
+                        </div>
+                        <p>Desarrollo de tejidos y órganos artificiales mediante técnicas avanzadas de bioingeniería y biomateriales.</p>
+                        <a href="#" class="read-more">Leer artículo completo →</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Revista Científica</h3>
+                <p>Publicación dedicada a la difusión de investigaciones científicas de alta calidad.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <p><a href="index.html" style="color: #ccc;">Inicio</a></p>
+                <p><a href="articulos.html" style="color: #ccc;">Artículos</a></p>
+                <p><a href="index.html#about" style="color: #ccc;">Sobre Nosotros</a></p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p>Email: contacto@revista.edu</p>
+                <p>Teléfono: +54 264 123-4567</p>
+                <p>Universidad Nacional de San Juan</p>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2024 Revista Científica. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
