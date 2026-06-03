@@ -26,12 +26,16 @@
             line-height: 1.6;
             color: #333;
             background-color: #f5f7fa;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         /* ----- SISTEMA DE VISTAS (SPA) ----- */
         .vista {
             display: none;
             animation: fadeIn 0.4s ease-in-out;
+            flex: 1;
         }
 
         .vista.activa {
@@ -136,14 +140,14 @@
             background-color: var(--color-accent);
         }
 
-        /* ----- HERO INICIO ----- */
+        /* ----- HERO INICIO Y ARTÍCULOS ----- */
         .hero-inicio {
             background: url('https://raw.githubusercontent.com/braian-3402/braian-3402.github.io/main/imagenes/fondo.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             background-blend-mode: overlay;
-            background-color: rgba(255, 255, 255, 0.8); /* Aclara un poco el fondo para contraste */
+            background-color: rgba(255, 255, 255, 0.8);
             padding: 3rem 1.5rem;
             text-align: center;
             min-height: 80vh;
@@ -152,22 +156,9 @@
             justify-content: center;
         }
         
-        .hero-inicio h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--color-primary);
-        }
-        
-        .hero-inicio p {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-            color: #555;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+        .hero-inicio h1 { font-size: 2.5rem; margin-bottom: 1rem; color: var(--color-primary); }
+        .hero-inicio p { font-size: 1.2rem; margin-bottom: 1.5rem; color: #555; max-width: 800px; margin-left: auto; margin-right: auto; }
 
-        /* ----- HERO ARTÍCULOS ----- */
         .hero-articulos {
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
                         url('https://raw.githubusercontent.com/braian-3402/braian-3402.github.io/main/imagenes/orion.jpg');
@@ -178,13 +169,9 @@
             text-align: center;
         }
 
-        .hero-articulos h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-        }
+        .hero-articulos h1 { font-size: 2.5rem; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); }
 
-        /* ----- TARJETAS DE ARTÍCULOS ----- */
+        /* ----- TARJETAS DE ARTÍCULOS (GRILLA) ----- */
         .articles-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -200,175 +187,84 @@
             transition: transform 0.3s, box-shadow 0.3s;
         }
         
-        .article-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        .article-card:hover { transform: translateY(-5px); box-shadow: 0 8px 16px rgba(0,0,0,0.15); }
+        .article-img { width: 100%; height: 200px; object-fit: cover; display: block; }
+        .article-content { padding: 1.5rem; }
+        .article-content h3 { color: var(--color-primary); margin-bottom: 0.8rem; font-size: 1.3rem; }
+        .article-meta { color: #666; font-size: 0.9rem; margin-bottom: 1rem; display: flex; gap: 1rem; }
+        .article-meta span { background: var(--color-light); padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem; }
+        .article-content p { color: #555; margin-bottom: 1.2rem; }
+        .read-more { color: var(--color-secondary); text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; cursor: pointer; }
+        .read-more:hover { text-decoration: underline; }
+
+        /* ----- VISTA DE LECTURA DE ARTÍCULO INDIVIDUAL ----- */
+        .article-view-container {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
         }
         
-        .article-img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            display: block;
-        }
+        .single-article-header { text-align: center; margin-bottom: 2rem; }
+        .single-article-title { color: var(--color-primary); font-size: 2.2rem; margin-bottom: 1rem; }
+        .single-article-meta { color: #666; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+        .single-article-meta span { background: var(--color-light); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem; }
         
-        .article-content {
-            padding: 1.5rem;
-        }
+        .single-article-image { width: 100%; max-height: 400px; object-fit: cover; border-radius: 8px; margin-bottom: 2rem; }
+        .single-article-content { max-width: 800px; margin: 0 auto; }
         
-        .article-content h3 {
-            color: var(--color-primary);
-            margin-bottom: 0.8rem;
-            font-size: 1.3rem;
-        }
+        .single-article-section { margin-bottom: 2rem; }
+        .single-article-section h3 { color: var(--color-primary); margin-bottom: 1rem; border-left: 4px solid var(--color-secondary); padding-left: 1rem; }
+        .single-article-section p { margin-bottom: 1rem; text-align: justify; }
+        .single-article-section ul { margin-left: 2rem; margin-bottom: 1rem; }
+        .single-article-section li { margin-bottom: 0.5rem; }
         
-        .article-meta {
-            color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            display: flex;
-            gap: 1rem;
-        }
+        .download-btn { display: inline-block; background: var(--color-secondary); color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 1rem; transition: background 0.3s; cursor: pointer; border: none; }
+        .download-btn:hover { background: #2980b9; }
         
-        .article-meta span {
-            background: var(--color-light);
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
-        }
-        
-        .article-content p {
-            color: #555;
-            margin-bottom: 1.2rem;
-        }
-        
-        .read-more {
-            color: var(--color-secondary);
-            text-decoration: none;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-        }
-        
-        .read-more:hover {
-            text-decoration: underline;
-        }
+        .back-link { display: inline-block; color: var(--color-secondary); text-decoration: none; margin-bottom: 2rem; font-weight: 500; cursor: pointer; }
+        .back-link:hover { text-decoration: underline; }
 
         /* ----- SECCIONES ESPECÍFICAS (NOSOTROS, PUBLICAR) ----- */
-        .about {
-            background-color: var(--color-light);
-            padding: 3rem 1.5rem;
-        }
+        .about { background-color: var(--color-light); padding: 3rem 1.5rem; }
+        .about-content { max-width: 800px; margin: 0 auto; text-align: center; }
+        .board-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+        .board-member { background: white; padding: 1.5rem; border-radius: var(--border-radius); text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .board-member h4 { color: var(--color-primary); margin-bottom: 0.5rem; }
         
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        
-        .board-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-        
-        .board-member {
-            background: white;
-            padding: 1.5rem;
-            border-radius: var(--border-radius);
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        
-        .board-member h4 {
-            color: var(--color-primary);
-            margin-bottom: 0.5rem;
-        }
-        
-        .submit-section {
-            background: linear-gradient(135deg, var(--color-secondary) 0%, #2980b9 100%);
-            color: white;
-            padding: 4rem 1.5rem;
-            text-align: center;
-        }
-        
-        .submit-content .btn {
-            background-color: white;
-            color: var(--color-secondary);
-            margin-top: 1.5rem;
-        }
-        
-        .submit-content .btn:hover {
-            background-color: var(--color-light);
-        }
+        .submit-section { background: linear-gradient(135deg, var(--color-secondary) 0%, #2980b9 100%); color: white; padding: 4rem 1.5rem; text-align: center; }
+        .submit-content .btn { background-color: white; color: var(--color-secondary); margin-top: 1.5rem; }
+        .submit-content .btn:hover { background-color: var(--color-light); }
 
         /* ----- FOOTER ----- */
         footer {
             background-color: var(--color-dark);
             color: white;
             padding: 3rem 0 1.5rem 0;
-            margin-top: auto;
+            margin-top: auto; /* Empuja el footer al fondo si el contenido es corto */
         }
         
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            padding: 0 20px;
-        }
-        
-        .footer-section h3 {
-            color: var(--color-accent);
-            margin-bottom: 1.2rem;
-        }
-        
-        .footer-section p, .footer-section a {
-            color: #ccc;
-            margin-bottom: 0.8rem;
-            display: block;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        
-        .footer-section a:hover {
-            color: white;
-        }
-        
-        .copyright {
-            text-align: center;
-            margin-top: 2rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid #4a6572;
-            color: #ccc;
-            font-size: 0.9rem;
-        }
+        .footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; padding: 0 20px; }
+        .footer-section h3 { color: var(--color-accent); margin-bottom: 1.2rem; }
+        .footer-section p, .footer-section a { color: #ccc; margin-bottom: 0.8rem; display: block; text-decoration: none; cursor: pointer; }
+        .footer-section a:hover { color: white; }
+        .copyright { text-align: center; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #4a6572; color: #ccc; font-size: 0.9rem; }
 
         /* ----- RESPONSIVE ----- */
         @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                text-align: center;
-                gap: 1rem;
-            }
-            nav ul {
-                justify-content: center;
-                flex-wrap: wrap;
-                gap: 1rem;
-            }
-            .hero-inicio h1, .hero-articulos h1 {
-                font-size: 2rem;
-            }
-            .articles-grid {
-                grid-template-columns: 1fr;
-            }
+            .header-container { flex-direction: column; text-align: center; gap: 1rem; }
+            nav ul { justify-content: center; flex-wrap: wrap; gap: 1rem; }
+            .hero-inicio h1, .hero-articulos h1 { font-size: 2rem; }
+            .articles-grid { grid-template-columns: 1fr; }
+            .single-article-title { font-size: 1.8rem; }
+            .single-article-meta { flex-direction: column; align-items: center; gap: 1rem; }
         }
     </style>
 </head>
 <body>
 
+    <!-- HEADER UNIFICADO -->
     <header>
         <div class="header-container">
             <div class="logo" onclick="navegar('vista-inicio')">Campus<span>Experimental</span></div>
@@ -384,10 +280,13 @@
         </div>
     </header>
 
-    <main>
+    <!-- CONTENEDOR PRINCIPAL DE LA APLICACIÓN -->
+    <main style="flex: 1; display: flex; flex-direction: column;">
 
+        <!-- ========================================== -->
+        <!-- VISTA 1: INICIO -->
+        <!-- ========================================== -->
         <div id="vista-inicio" class="vista activa">
-            
             <section class="hero-inicio">
                 <div class="container">
                     <h1>Revista Académica del Laboratorio de Física “Dr. José Luis Sales”</h1>
@@ -399,6 +298,7 @@
             <section class="container" id="articulos-recientes">
                 <h2 class="section-title">Artículos Destacados</h2>
                 <div class="articles-grid">
+                    <!-- Artículo Destacado 1 (Conectado a la nueva vista) -->
                     <article class="article-card">
                         <img src="https://raw.githubusercontent.com/braian-3402/braian-3402.github.io/main/imagenes/orion.jpg" alt="IA Medicina" class="article-img">
                         <div class="article-content">
@@ -406,13 +306,14 @@
                             <div class="article-meta">
                                 <span>Dra. Elena Rodríguez</span>
                                 <span>Enero 2024</span>
-                                <span>Medicina</span>
                             </div>
                             <p>Exploración de las últimas técnicas de IA para diagnóstico médico y tratamiento personalizado.</p>
-                            <a href="#" class="read-more">Leer artículo completo →</a>
+                            <!-- Este enlace llama a la nueva vista -->
+                            <a onclick="navegar('vista-articulo-ejemplo')" class="read-more">Leer artículo completo →</a>
                         </div>
                     </article>
 
+                    <!-- Artículo Destacado 2 -->
                     <article class="article-card">
                         <img src="https://raw.githubusercontent.com/braian-3402/braian-3402.github.io/main/imagenes/orion.jpg" alt="Cambio Climático" class="article-img">
                         <div class="article-content">
@@ -420,13 +321,13 @@
                             <div class="article-meta">
                                 <span>Dr. Carlos Méndez</span>
                                 <span>Diciembre 2023</span>
-                                <span>Ecología</span>
                             </div>
                             <p>Análisis de los efectos a largo plazo del calentamiento global en la biodiversidad de los océanos.</p>
-                            <a href="#" class="read-more">Leer artículo completo →</a>
+                            <a class="read-more">Leer artículo completo →</a>
                         </div>
                     </article>
 
+                    <!-- Artículo Destacado 3 -->
                     <article class="article-card">
                         <img src="https://raw.githubusercontent.com/braian-3402/braian-3402.github.io/main/imagenes/orion.jpg" alt="Enseñanza" class="article-img">
                         <div class="article-content">
@@ -434,10 +335,9 @@
                             <div class="article-meta">
                                 <span>Dr. Javier López</span>
                                 <span>Noviembre 2023</span>
-                                <span>Educación</span>
                             </div>
                             <p>Evaluación de metodologías innovadoras para mejorar el aprendizaje en educación superior.</p>
-                            <a href="#" class="read-more">Leer artículo completo →</a>
+                            <a class="read-more">Leer artículo completo →</a>
                         </div>
                     </article>
                 </div>
@@ -478,13 +378,15 @@
                 <div class="container submit-content">
                     <h2 class="section-title" style="color: white;">¿Desea publicar en nuestra revista?</h2>
                     <p>Invitamos a estudiantes y académicos a enviar sus contribuciones para su evaluación y posible publicación.</p>
-                    <a href="#" class="btn">Ver directrices para autores</a>
+                    <a class="btn">Ver directrices para autores</a>
                 </div>
             </section>
         </div>
 
+        <!-- ========================================== -->
+        <!-- VISTA 2: TODOS LOS ARTÍCULOS -->
+        <!-- ========================================== -->
         <div id="vista-articulos" class="vista">
-            
             <section class="hero-articulos">
                 <div class="container">
                     <h1>Catálogo de Artículos Científicos</h1>
@@ -496,6 +398,7 @@
                 <h2 class="section-title">Todos los Artículos</h2>
                 <div class="articles-grid">
                     
+                    <!-- Este enlace llama a la nueva vista -->
                     <article class="article-card">
                         <img src="https://raw.githubusercontent.com/braian-3402/braian-3402.github.io/main/imagenes/orion.jpg" alt="IA" class="article-img">
                         <div class="article-content">
@@ -503,10 +406,9 @@
                             <div class="article-meta">
                                 <span>Dra. Elena Rodríguez</span>
                                 <span>Enero 2024</span>
-                                <span>Medicina</span>
                             </div>
                             <p>Exploración de las últimas técnicas de IA para diagnóstico médico y tratamiento personalizado.</p>
-                            <a href="#" class="read-more">Leer artículo completo →</a>
+                            <a onclick="navegar('vista-articulo-ejemplo')" class="read-more">Leer artículo completo →</a>
                         </div>
                     </article>
 
@@ -517,75 +419,85 @@
                             <div class="article-meta">
                                 <span>Dr. Carlos Méndez</span>
                                 <span>Diciembre 2023</span>
-                                <span>Ecología</span>
                             </div>
                             <p>Análisis de los efectos a largo plazo del calentamiento global en la biodiversidad oceánica.</p>
-                            <a href="#" class="read-more">Leer artículo completo →</a>
+                            <a class="read-more">Leer artículo completo →</a>
                         </div>
                     </article>
-
-                    <article class="article-card">
-                        <img src="https://raw.githubusercontent.com/braian-3402/braian-3402.github.io/main/imagenes/orion.jpg" alt="Educación" class="article-img">
-                        <div class="article-content">
-                            <h3>Nuevos enfoques en la enseñanza de las matemáticas</h3>
-                            <div class="article-meta">
-                                <span>Dr. Javier López</span>
-                                <span>Noviembre 2023</span>
-                                <span>Educación</span>
-                            </div>
-                            <p>Evaluación de metodologías innovadoras para mejorar el aprendizaje en educación superior.</p>
-                            <a href="#" class="read-more">Leer artículo completo →</a>
-                        </div>
-                    </article>
-
-                    <article class="article-card">
-                        <img src="https://raw.githubusercontent.com/braian-3402/braian-3402.github.io/main/imagenes/orion.jpg" alt="Energías" class="article-img">
-                        <div class="article-content">
-                            <h3>Desarrollo de nuevas tecnologías en energías renovables</h3>
-                            <div class="article-meta">
-                                <span>Dra. María González</span>
-                                <span>Octubre 2023</span>
-                                <span>Energía</span>
-                            </div>
-                            <p>Innovaciones recientes en captación y almacenamiento de energía solar y eólica para aplicaciones urbanas.</p>
-                            <a href="#" class="read-more">Leer artículo completo →</a>
-                        </div>
-                    </article>
-
-                    <article class="article-card">
-                        <img src="https://raw.githubusercontent.com/braian-3402/braian-3402.github.io/main/imagenes/orion.jpg" alt="Neurociencia" class="article-img">
-                        <div class="article-content">
-                            <h3>Avances en neurociencia cognitiva y aprendizaje</h3>
-                            <div class="article-meta">
-                                <span>Dr. Roberto Sánchez</span>
-                                <span>Septiembre 2023</span>
-                                <span>Neurociencia</span>
-                            </div>
-                            <p>Estudio de los mecanismos cerebrales involucrados en los procesos de aprendizaje y memoria.</p>
-                            <a href="#" class="read-more">Leer artículo completo →</a>
-                        </div>
-                    </article>
-
-                    <article class="article-card">
-                        <img src="https://raw.githubusercontent.com/braian-3402/braian-3402.github.io/main/imagenes/orion.jpg" alt="Bioingeniería" class="article-img">
-                        <div class="article-content">
-                            <h3>Aplicaciones de la bioingeniería en medicina regenerativa</h3>
-                            <div class="article-meta">
-                                <span>Dra. Ana Martínez</span>
-                                <span>Agosto 2023</span>
-                                <span>Bioingeniería</span>
-                            </div>
-                            <p>Desarrollo de tejidos y órganos artificiales mediante técnicas avanzadas de bioingeniería.</p>
-                            <a href="#" class="read-more">Leer artículo completo →</a>
-                        </div>
-                    </article>
-
+                    
+                    <!-- Podés agregar más tarjetas aquí siguiendo el mismo formato -->
                 </div>
             </section>
         </div>
 
+        <!-- ========================================== -->
+        <!-- VISTA 3: LECTURA DE ARTÍCULO (NUEVA) -->
+        <!-- ========================================== -->
+        <div id="vista-articulo-ejemplo" class="vista">
+            <div class="container" style="max-width: 1000px; padding-top: 3rem;">
+                
+                <a onclick="navegar('vista-articulos')" class="back-link">← Volver a todos los artículos</a>
+
+                <article class="article-view-container">
+                    <div class="single-article-header">
+                        <h1 class="single-article-title">Avances en la inteligencia artificial aplicada a la medicina</h1>
+                        <div class="single-article-meta">
+                            <span>📅 Enero 2024</span>
+                            <span>👩‍🔬 Dra. Elena Rodríguez</span>
+                            <span>🏥 Departamento de Innovación Médica</span>
+                            <span>🔬 Medicina & Tecnología</span>
+                        </div>
+                    </div>
+
+                    <img src="https://raw.githubusercontent.com/braian-3402/braian-3402.github.io/main/imagenes/orion.jpg" 
+                         alt="IA aplicada en diagnóstico médico" class="single-article-image">
+
+                    <div class="single-article-content">
+                        <div class="single-article-section">
+                            <h3>Resumen Ejecutivo</h3>
+                            <p>La inteligencia artificial está revolucionando el campo de la medicina mediante el desarrollo de algoritmos capaces de analizar grandes volúmenes de datos médicos, asistir en el diagnóstico de enfermedades y personalizar tratamientos para pacientes individuales.</p>
+                        </div>
+
+                        <div class="single-article-section">
+                            <h3>Introducción</h3>
+                            <p>En los últimos años, la integración de sistemas de inteligencia artificial en el ámbito médico ha demostrado un potencial significativo para mejorar la precisión diagnóstica, optimizar los flujos de trabajo clínicos y reducir los costos sanitarios.</p>
+                        </div>
+
+                        <div class="single-article-section">
+                            <h3>Metodología</h3>
+                            <p>El estudio se basó en el análisis de datos de más de 50,000 casos médicos utilizando redes neuronales convolucionales y algoritmos de aprendizaje profundo. Los datos incluyeron:</p>
+                            <ul>
+                                <li>Imágenes médicas (radiografías, resonancias magnéticas)</li>
+                                <li>Historiales clínicos electrónicos</li>
+                                <li>Datos genómicos de pacientes</li>
+                                <li>Resultados de laboratorio</li>
+                            </ul>
+                        </div>
+
+                        <div class="single-article-section">
+                            <h3>Resultados Destacados</h3>
+                            <p>El sistema desarrollado demostró una precisión del 94.7% en el diagnóstico temprano de cáncer de pulmón a partir de imágenes de tomografía computarizada, superando el rendimiento de radiólogos humanos en un 15%.</p>
+                            <p>Adicionalmente, se logró reducir el tiempo de diagnóstico de 72 horas a menos de 2 horas en casos críticos.</p>
+                        </div>
+
+                        <div class="single-article-section">
+                            <h3>Conclusiones</h3>
+                            <p>La IA representa una herramienta poderosa para complementar el trabajo de los profesionales de la salud, ofreciendo diagnósticos más rápidos y precisos. Sin embargo, es crucial mantener la supervisión humana y considerar aspectos éticos en su implementación.</p>
+                        </div>
+
+                        <div style="text-align: center; margin-top: 2rem;">
+                            <a href="laboratorios/ia-medicina/articulo-completo.pdf" class="download-btn" target="_blank">
+                                📄 Descargar PDF Completo
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+
     </main>
 
+    <!-- FOOTER UNIFICADO -->
     <footer id="contact">
         <div class="footer-content">
             <div class="footer-section">
@@ -613,6 +525,7 @@
         </div>
     </footer>
 
+    <!-- SCRIPT DEL SISTEMA DE NAVEGACIÓN -->
     <script>
         function navegar(idVista, idAncla = null) {
             // 1. Ocultar todas las vistas quitando la clase 'activa'
@@ -629,15 +542,13 @@
 
             // 3. Manejar el deslizamiento (Scroll)
             if (idAncla) {
-                // Si hay un ancla (ej: "about", "contact"), deslizar suavemente hacia ella
                 setTimeout(() => {
                     const elementoDestino = document.getElementById(idAncla);
                     if (elementoDestino) {
                         elementoDestino.scrollIntoView({ behavior: 'smooth' });
                     }
-                }, 50); // Pequeña pausa para asegurar que la vista ya está visible
+                }, 50);
             } else {
-                // Si no hay ancla, volver arriba de todo
                 window.scrollTo(0, 0);
             }
         }
